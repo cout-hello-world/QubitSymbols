@@ -51,7 +51,7 @@ void print_state(std::uint16_t state) {
 		p += "{A,E},";
 	}
 	if (state & AF) {
-		p += "{A,F}";
+		p += "{A,F},";
 	}
 	if (state & BC) {
 		p += "{B,C},";
