@@ -1,6 +1,7 @@
 #include <cstdint>
 #include <unordered_set>
 #include <iostream>
+#include <string>
 
 
 
@@ -36,7 +37,54 @@ bool has_E(std::uint16_t st) {
 }
 
 void print_state(std::uint16_t state) {
-	std::cout << state << '\n';
+	std::string p = "{";
+	if (state & AB) {
+		p += "{A,B},";
+	}
+	if (state & AC) {
+		p += "{A,C},";
+	}
+	if (state & AD) {
+		p += "{A,D},";
+	}
+	if (state & AE) {
+		p += "{A,E},";
+	}
+	if (state & AF) {
+		p += "{A,F}";
+	}
+	if (state & BC) {
+		p += "{B,C},";
+	}
+	if (state & BD) {
+		p += "{B,D}";
+	}
+	if (state & BE) {
+		p += "{B,E},";
+	}
+	if (state & BF) {
+		p += "{B,F},";
+	}
+	if (state & CD) {
+		p += "{C,D},";
+	}
+	if (state & CE) {
+		p += "{C,E},";
+	}
+	if (state & CF) {
+		p += "{C,F},";
+	}
+	if (state & DE) {
+		p += "{D,E},";
+	}
+	if (state & DF) {
+		p += "{D,F},";
+	}
+	if (state & EF) {
+		p += "{E,F},";
+	}
+	p[p.size() - 1] = '}';
+	std::cout << p << '\n';
 }
 
 // A   B
