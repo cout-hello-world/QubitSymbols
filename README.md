@@ -21,3 +21,4 @@ To also create the PDF output, run
 make symbols.pdf
 ```
 The above further requires a LaTeX installation with `tikz`.
+It takes about 2 minutes, 30 seconds on my machine.
