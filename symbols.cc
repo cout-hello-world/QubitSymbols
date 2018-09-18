@@ -3,26 +3,10 @@
 #include <iostream>
 #include <string>
 
-
+#include "draw.hh"
+#include "pair.hh"
 
 namespace {
-enum pair : std::uint16_t {
-	AB = (1 << 0),
-	AC = (1 << 1),
-	AD = (1 << 2),
-	AE = (1 << 3),
-	AF = (1 << 4),
-	BC = (1 << 5),
-	BD = (1 << 6),
-	BE = (1 << 7),
-	BF = (1 << 8),
-	CD = (1 << 9),
-	CE = (1 << 10),
-	CF = (1 << 11),
-	DE = (1 << 12),
-	DF = (1 << 13),
-	EF = (1 << 14)
-};
 bool has_A(std::uint16_t st) {
 	return st & AB || st & AC || st & AD || st & AE || st & AF;
 }
@@ -34,57 +18,6 @@ bool has_C(std::uint16_t st) {
 }
 bool has_E(std::uint16_t st) {
 	return st & AE || st & BE || st & CE || st & DE || st & EF;
-}
-
-void print_state(std::uint16_t state) {
-	std::string p = "{";
-	if (state & AB) {
-		p += "{A,B},";
-	}
-	if (state & AC) {
-		p += "{A,C},";
-	}
-	if (state & AD) {
-		p += "{A,D},";
-	}
-	if (state & AE) {
-		p += "{A,E},";
-	}
-	if (state & AF) {
-		p += "{A,F},";
-	}
-	if (state & BC) {
-		p += "{B,C},";
-	}
-	if (state & BD) {
-		p += "{B,D},";
-	}
-	if (state & BE) {
-		p += "{B,E},";
-	}
-	if (state & BF) {
-		p += "{B,F},";
-	}
-	if (state & CD) {
-		p += "{C,D},";
-	}
-	if (state & CE) {
-		p += "{C,E},";
-	}
-	if (state & CF) {
-		p += "{C,F},";
-	}
-	if (state & DE) {
-		p += "{D,E},";
-	}
-	if (state & DF) {
-		p += "{D,F},";
-	}
-	if (state & EF) {
-		p += "{E,F},";
-	}
-	p[p.size() - 1] = '}';
-	std::cout << p << '\n';
 }
 
 // A   B
@@ -164,7 +97,5 @@ int main()
 		states.insert(normalize(state));
 	}
 
-	for (const auto s : states) {
-		print_state(s);
-	}
+	draw(std::cout, states);
 }
