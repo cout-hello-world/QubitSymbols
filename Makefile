@@ -10,6 +10,12 @@ symbols.o: symbols.cc draw.hh pair.hh
 draw.o: draw.cc draw.hh pair.hh
 	$(CXX) -c $(CPPFLAGS) $(CXXFLAGS) -o $@ $<
 
+symbols.pdf: symbols.tex
+	pdflatex $<
+
+symbols.tex: symbols
+	./$< > $@
+
 .PHONY: clean
 clean:
-	$(RM) symbols symbols.o draw.o
+	git clean -fxd
