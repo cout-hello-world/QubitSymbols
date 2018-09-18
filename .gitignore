@@ -1,3 +1,8 @@
-symbols
-symbols.o
-draw.o
+*
+!symbols.cc
+!symbols.hh
+!draw.cc
+!draw.hh
+!pair.hh
+!Makefile
+!LICENSE
